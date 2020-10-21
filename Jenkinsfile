@@ -4,7 +4,7 @@ pipeline {
          
          stage('Lint HTML') {
               steps {
-                  sh 'tidy -q -e --drop-empty-elements no Application_Code/index.html'
+                  sh 'tidy -q -e --drop-empty-elements no Application_Code/*.html'
               }
          }
          stage('Build Image') {
