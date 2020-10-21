@@ -4,7 +4,7 @@ pipeline {
          
          stage('Lint HTML') {
               steps {
-                  sh 'tidy-html5 -q -e Application_Code/index.html'
+                  sh 'tidy5 -q -e Application_Code/index.html'
               }
          }
          stage('Build Image') {
