@@ -9,7 +9,7 @@ pipeline {
          }
          stage('Build Image') {
               steps {
-                  sh 'docker build -t vacationSpot .'
+                  sh 'docker build -t vacationspot .'
                   sh 'docker image ls'
               }
          }
