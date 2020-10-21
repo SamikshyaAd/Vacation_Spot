@@ -9,7 +9,7 @@ pipeline {
          }
          stage('Build Image') {
               steps {
-                  sh 'docker build -t vacationSpot'
+                  sh 'docker build -t vacationSpot .'
                   sh 'docker image ls'
               }
          }
@@ -18,19 +18,19 @@ pipeline {
                  aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail' , outputFormat: 'html'
               }
          }
-         stage('Push Image') {
+         stage('Publish to ECR') {
               steps {
-                  
+                  sh 'echo"Inside publish"'
               }
          }
          stage('Set current kubectl context') {
              steps{
-             
+                  sh 'echo"Inside kubectl"'
             }
          }
          stage('Deploy container') {
              steps{
-             
+                  sh 'echo"Inside Deploy"'
             }
          
      }
