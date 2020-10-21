@@ -20,18 +20,19 @@ pipeline {
          }
          stage('Publish to ECR') {
               steps {
-                  sh 'echo"Inside publish"'
+                  sh 'echo "Inside publish"'
               }
          }
          stage('Set current kubectl context') {
              steps{
-                  sh 'echo"Inside kubectl"'
+                  sh 'echo "Inside kubectl"'
             }
          }
          stage('Deploy container') {
              steps{
-                  sh 'echo"Inside Deploy"'
+                  sh 'echo "Inside Deploy"'
             }
          
+          }
      }
 }
