@@ -17,7 +17,7 @@ pipeline {
          }
          stage('Security Scan') {
               steps { 
-                 aquaMicroscanner imageName: 'alpivacationspotne:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail' , outputFormat: 'html'
+                 aquaMicroscanner imageName: 'vacationspot:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail' , outputFormat: 'html'
               }
          }
          stage('Publish to ECR') {
