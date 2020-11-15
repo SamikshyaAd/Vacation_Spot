@@ -11,7 +11,7 @@ pipeline {
          stage('Build Image') {
               steps {
                   sh 'echo "Building Docker image"'
-                  sh 'docker build -t 470792012930.dkr.ecr.us-east-2.amazonaws.com/vacationspot:latest -f docker/prod/Dockerfile .'
+                  sh 'docker build -t vacationspot .'
                   sh 'docker image ls'
               }
          }
