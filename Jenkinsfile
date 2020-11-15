@@ -22,10 +22,12 @@ pipeline {
          }
          stage('Publish to ECR') {
               steps {
-                 docker.withRegistry('https://470792012930.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:ecr-cred'){
-                    sh 'echo "Publishing to ECR"'
-                    sh 'docker push 470792012930.dkr.ecr.us-east-2.amazonaws.com/vacationspot:latest'
-                  }
+                 script{
+                      docker.withRegistry('https://470792012930.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:ecr-cred'){
+                         sh 'echo "Publishing to ECR"'
+                         sh 'docker push 470792012930.dkr.ecr.us-east-2.amazonaws.com/vacationspot:latest'
+                    }
+                 }
               }
           }
          stage('Set current kubectl context') {
