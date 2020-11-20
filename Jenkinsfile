@@ -4,42 +4,36 @@ pipeline {
          
          stage('Lint HTML') {
               steps {
-                  sh 'echo "Linting HTML"'
+                  sh 'echo "Lint HTML"'
                   sh 'tidy -q -e --drop-empty-elements no Application_Code/*.html'
               }
          }
          stage('Build Image') {
               steps {
-                  sh 'echo "Building Docker image"'
-                  sh 'docker build -t vacationspot .'
+                  sh 'echo "Build Docker image"'
+                  sh 'docker build -t capstone-sample-app .'
                   sh 'docker image ls'
               }
          }
          stage('Security Scan') {
               steps { 
-                 aquaMicroscanner imageName: 'vacationspot:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail' , outputFormat: 'html'
+                 aquaMicroscanner imageName: 'capstone-sample-app:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail' , outputFormat: 'html'
               }
          }
          stage('Publish to ECR') {
               steps {
                  script{
-                      docker.withRegistry('https://470792012930.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:ecr-cred'){
-                         sh 'echo "Publishing to ECR"'
-                         sh 'docker push 470792012930.dkr.ecr.us-east-2.amazonaws.com/vacationspot:latest'
+                      docker.withRegistry('https://470792012930.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:jenkins'){
+                         sh 'echo "Publish to ECR"'
+                         sh 'docker push 470792012930.dkr.ecr.us-west-2.amazonaws.com/capstone-sample-app:latest'
                     }
                  }
               }
           }
-         stage('Set current kubectl context') {
+         stage('Kubernetes Deploy') {
              steps{
-                  sh 'echo "Inside kubectl"'
+                  sh 'echo "Deploy to K8s"'
             }
-         }
-         stage('Deploy container') {
-             steps{
-                  sh 'echo "Inside Deploy"'
-            }
-         
           }
      }
 }
