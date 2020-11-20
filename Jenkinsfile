@@ -25,7 +25,7 @@ pipeline {
                  script{
                       docker.withRegistry('https://470792012930.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:jenkins'){
                          sh 'echo "Publish to ECR"'
-                         sh 'docker push 470792012930.dkr.ecr.us-west-2.amazonaws.com/capstone-sample-app:latest'
+                         sh 'docker push capstone-sample-app:latest'
                     }
                  }
               }
