@@ -32,8 +32,22 @@ pipeline {
           }
          stage('Kubernetes Deploy') {
              steps{
-                  sh 'echo "Deploy to K8s"'
+                 withAWS(credentials: 'jenkins', region: 'us-west-2') {
+					sh "aws eks --region us-west-2 update-kubeconfig --name UdacityCapStone-Cluster"
+					// Configure deployment
+					sh "kubectl apply -f k8s/deployment.yml"
+					// Configure service for loadbalancing
+					sh "kubectl apply -f k8s/service.yml"
+					// Set created image to do a rolling update
+					sh "kubectl set image deployments/capstone-sample-app capstone-sample-app=470792012930.dkr.ecr.us-west-2.amazonaws.com/capstone-sample-app:latest"
+				}
             }
           }
      }
+     post {
+		always {
+		    // remove Docker image 
+		    sh "docker rmi $IMAGE | true"
+		}
+	}
 }
