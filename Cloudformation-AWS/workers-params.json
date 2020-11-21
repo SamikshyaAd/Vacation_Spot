@@ -1,0 +1,42 @@
+[
+	{
+		"ParameterKey": "KeyName",
+		"ParameterValue": "jenkins"
+	},
+	{
+		"ParameterKey": "OnDemandNodeInstanceType",
+		"ParameterValue": "t2.medium"
+	},
+	{
+		"ParameterKey": "NodeImageId",
+		"ParameterValue": "ami-0907724389e8705d9"
+	},
+	{
+		"ParameterKey": "NodeAutoScalingGroupMinSize",
+		"ParameterValue": 1
+	},
+	{
+		"ParameterKey": "NodeAutoScalingGroupMaxSize",
+		"ParameterValue": 3
+	},
+	{
+		"ParameterKey": "ClusterName",
+		"ParameterValue": "UdacityCapStone-Cluster"
+	},
+	{
+		"ParameterKey": "OnDemandBootstrapArguments",
+		"ParameterValue": "--kubelet-extra-args --node-labels=lifecycle=OnDemand"
+	},
+	{
+		"ParameterKey": "ClusterControlPlaneSecurityGroup",
+		"ParameterValue": "sg-00e185b73cb078fa0"
+	},
+	{
+		"ParameterKey": "VpcId",
+		"ParameterValue": "vpc-0e75f1283723c4f19"
+	},
+	{
+		"ParameterKey": "Subnets",
+		"ParameterValue": "subnet-001de7c0ee49c79ff,subnet-0de75cdf09dbf3d0f,subnet-08b04681e7d90a4de"
+	}
+]

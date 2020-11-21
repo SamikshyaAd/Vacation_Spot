@@ -1,0 +1,10 @@
+[
+	{
+		"ParameterKey": "StackName",
+		"ParameterValue": "UdacityCapStone"
+	},
+    {
+		"ParameterKey": "ClusterName",
+		"ParameterValue": "UdacityCapStone-Cluster"
+	}
+]

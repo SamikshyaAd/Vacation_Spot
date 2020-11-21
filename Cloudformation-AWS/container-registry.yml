@@ -1,0 +1,14 @@
+Description: >
+  Vacation_Spot
+  This template defines the ECR
+
+Parameters:
+  RepositoryName:
+    Type: String
+    Description: Name of the ECR Repository
+
+Resources:
+  ElasticContainerRegistry:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Ref RepositoryName
