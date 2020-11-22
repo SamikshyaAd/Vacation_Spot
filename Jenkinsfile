@@ -38,7 +38,7 @@ pipeline {
 					sh 'kubectl apply -f k8s/deployment.yml'
 					// Configure service for loadbalancing
 					sh 'kubectl apply -f k8s/service.yml'
-					// Set created image to do a rolling update
+					// Set created image for rolling update
 					sh 'kubectl set image deployments/capstone-sample-app capstone-sample-app=470792012930.dkr.ecr.us-west-2.amazonaws.com/capstone-sample-app:latest'
 				}
             }
@@ -46,7 +46,7 @@ pipeline {
      }
      post {
 		always {
-		    // remove Docker image 
+		    // remove docker image 
 		    sh 'docker rmi capstone-sample-app | true'
 		}
 	}
