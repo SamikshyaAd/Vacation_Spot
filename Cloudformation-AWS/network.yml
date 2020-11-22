@@ -5,12 +5,12 @@ Description: >
 Parameters:
   StackName:
     Type: String
-    Description: The name of the Stack
+    Description: Name of the Stack
 
   VpcBlock:
     Type: String
     Default: 192.168.0.0/16
-    Description: The CIDR range for the VPC
+    Description: CIDR range for the VPC
   Subnet01Block:
     Type: String
     Default: 192.168.64.0/18

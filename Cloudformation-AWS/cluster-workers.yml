@@ -106,11 +106,11 @@ Parameters:
     Type: AWS::EC2::SecurityGroup::Id
 
   VpcId:
-    Description: The VPC of the worker instances
+    Description: VPC of the worker instances
     Type: AWS::EC2::VPC::Id
 
   Subnets:
-    Description: The subnets where workers can be created
+    Description: Subnets where workers can be created
     Type: List<AWS::EC2::Subnet::Id>
 
 Metadata:
@@ -306,5 +306,5 @@ Resources:
 
 Outputs:
   NodeInstanceRole:
-    Description: The node instance role. Needed for aws-cm-auth.yaml
+    Description: Node instance role. Needed for aws-cm-auth.yaml
     Value: !GetAtt NodeInstanceRole.Arn

@@ -5,7 +5,7 @@ Description: >
 Parameters:
   RepositoryName:
     Type: String
-    Description: Name of the ECR Repository
+    Description: ECR Repository name
 
 Resources:
   ElasticContainerRegistry:
