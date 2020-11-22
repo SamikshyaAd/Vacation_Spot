@@ -5,12 +5,14 @@ pipeline {
          stage('Lint HTML') {
               steps {
                   sh 'echo "Lint HTML"'
+                  //Lint html file
                   sh 'tidy -q -e --drop-empty-elements no Application_Code/*.html'
               }
          }
          stage('Build Image') {
               steps {
                   sh 'echo "Build Docker image"'
+                  //Build image
                   sh 'docker build -t capstone-sample-app .'
                   sh 'docker image ls'
               }
@@ -25,6 +27,7 @@ pipeline {
                  script{
                       docker.withRegistry('https://470792012930.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:jenkins'){
                          sh 'echo "Publish to ECR"'
+                         //Push image to ECR
                          sh 'docker push 470792012930.dkr.ecr.us-west-2.amazonaws.com/capstone-sample-app:latest'
                     }
                  }
