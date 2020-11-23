@@ -26,7 +26,7 @@ The goal of this project is to delpoy a containerised web application using dock
 * `update_stack.sh` : Shell script to update cloudformation stack.
 * `delete_stack.sh` : Shell script to delete cloudformation stack.
 
-#### * Cloudformation-Kubernetes:
+#### * k8s:
 * `deployment.yml` : Cloudformation template to peform rolling update.
 * `service.yml` : Cloudformation template to provision load balancer.
 
