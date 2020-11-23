@@ -9,14 +9,14 @@
  This is a web application which lists some of the popular vacation destination in the world. You can search for your favorite vacation place.
 
 ## Project Overview
-The goal of this project is to do rolling delpoyment of CICD pipline using Jenkins on Kubernetes cluster. CICD pipline includes linting stage to lint application code, buliding stage that builds docker image, security scan to scan docker image vulnerability, push stage to push build docker container to amazon ECR and deploy stage to deploy containerized application on Kubernetes cluster performing rolling updates. For deployment, I created cloudformation templates to create K8s cluster (k8s-cluster.yml), worker node (cluster-workers.yml), roles for worker node (aws-auth-cm.yml), network (network.yml)required for deploying cluster, and ECR registry (container-registry.yml) to run container image. 
+The goal of this project is to do rolling deployment of CICD pipeline using Jenkins on Kubernetes cluster. CICD pipline includes linting stage to lint application code, buliding stage that builds docker image, security scan to scan docker image vulnerability, push stage to push build docker container to amazon ECR and deploy stage to deploy containerized application on Kubernetes cluster performing rolling updates. For deployment, I created cloudformation templates to create K8s cluster (k8s-cluster.yml), worker node (cluster-workers.yml), roles for worker node (aws-auth-cm.yml), network (network.yml)required for deploying cluster, and ECR registry (container-registry.yml) to run container image. 
 
 ## Objectives
 * Working experience in AWS.
 * Using Jenkins to implement Continuous Integration and Continuous Deployment.
-* Building pipelines.
-* Building Docker containers in pipelines.
-* Working with Ansible and CloudFormation to deploy kubernetes clusters.
+* Building pipeline.
+* Building Docker containers in the pipeline.
+* Working with Ansible and CloudFormation to deploy web application in kubernetes clusters.
 
 ## Files included
 #### * Cloudformation-AWS:
