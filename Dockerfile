@@ -1,4 +1,5 @@
 FROM nginx
+LABEL maintainer="samikshyaadhikari234@gmail.com"
 
 ## Step 1:
 # Copy source code to working directory
